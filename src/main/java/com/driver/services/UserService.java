@@ -22,7 +22,7 @@ public class UserService {
        User newUser = User.builder()
                .firstName("")
                .lastName("")
-               .userName(username)
+               .username(username)
                .password(password)
                .build();
         return userRepository3.save(newUser);

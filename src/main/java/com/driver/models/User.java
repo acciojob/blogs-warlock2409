@@ -19,7 +19,7 @@ class User{
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    String userName;
+    String username;
     String password;
     String firstName;
     String lastName;
