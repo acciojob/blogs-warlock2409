@@ -21,7 +21,9 @@ public class ImageController {
             imageService.addImage(blogId,description,dimensions);
             return new ResponseEntity<>("Added image successfully", HttpStatus.OK);
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+            throw new Exception(e.getMessage());
 
         }
 
@@ -33,7 +35,9 @@ public class ImageController {
             int res= imageService.countImagesInScreen(id,screenDimensions);
             return new ResponseEntity<>(res, HttpStatus.OK);
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+            throw new Exception(e.getMessage());
 
         }
 
@@ -45,7 +49,9 @@ public class ImageController {
             imageService.deleteImage(id);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+            throw new Exception(e.getMessage());
 
         }
         // delete image using deleteById

@@ -34,7 +34,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.OK);
 
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            throw new Exception(e.getMessage());
 
         }
 
@@ -46,7 +46,8 @@ public class UserController {
             userService.updateUser(id,password);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            throw new Exception(e.getMessage());
 
         }
         // update password of given user

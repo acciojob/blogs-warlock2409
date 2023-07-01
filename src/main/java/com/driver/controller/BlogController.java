@@ -24,7 +24,8 @@ public class BlogController {
             Blog responseBlog= blogService.createAndReturnBlog(userId,title,content);
             return new ResponseEntity<>(responseBlog, HttpStatus.CREATED);
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            throw new Exception(e.getMessage());
 
         }
 
@@ -37,7 +38,9 @@ public class BlogController {
             return new ResponseEntity<>(HttpStatus.OK);
 
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            throw new Exception(e.getMessage());
+
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         }
         // Delete the blog using deleteById
