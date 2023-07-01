@@ -17,17 +17,17 @@ public class ImageController {
     @PostMapping("/{blogId}/add-image")
     public ResponseEntity<String> addImage(@PathVariable int blogId, @RequestParam String description, @RequestParam String dimensions) throws Exception {
         // Add image into the give blog
-        imageService.addImage(blogId,description,dimensions);
-        return new ResponseEntity<>("Added image successfully", HttpStatus.OK);
-//        try{
-//            imageService.addImage(blogId,description,dimensions);
-//            return new ResponseEntity<>("Added image successfully", HttpStatus.OK);
-//        }catch (Exception e){
-////            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//
-//            throw new Exception(e.getMessage());
-//
-//        }
+//        imageService.addImage(blogId,description,dimensions);
+//        return new ResponseEntity<>("Added image successfully", HttpStatus.OK);
+        try{
+            imageService.addImage(blogId,description,dimensions);
+            return new ResponseEntity<>("Added image successfully", HttpStatus.OK);
+        }catch (Exception e){
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+            throw new Exception(e.getMessage());
+
+        }
 
     }
 
