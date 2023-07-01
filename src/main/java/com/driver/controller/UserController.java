@@ -14,42 +14,47 @@ public class UserController {
     @Autowired
     UserService userService;
     @PostMapping("/create")
-    public ResponseEntity<Void> createUser(@RequestParam String username, @RequestParam String password) throws Exception {
+    public ResponseEntity<Void> createUser(@RequestParam String username, @RequestParam String password) {
         // create a new user with given username and password
-        try{
-            userService.createUser(username,password);
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
-        }
+        userService.createUser(username,password);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+//        try{
+//            userService.createUser(username,password);
+//            return new ResponseEntity<>(HttpStatus.CREATED);
+//        }catch (Exception e){
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//
+//        }
 
     }
 
     @DeleteMapping("/delete/{userId}")
-    public ResponseEntity<Void> deleteUser(@PathVariable int userId) throws Exception {
+    public ResponseEntity<Void> deleteUser(@PathVariable int userId) {
         // delete user using deleteById
-        try{
-            userService.deleteUser(userId);
-            return new ResponseEntity<>(HttpStatus.OK);
-
-        }catch (Exception e){
-            throw new Exception(e.getMessage());
-
-        }
+        userService.deleteUser(userId);
+        return new ResponseEntity<>(HttpStatus.OK);
+//        try{
+//            userService.deleteUser(userId);
+//            return new ResponseEntity<>(HttpStatus.OK);
+//
+//        }catch (Exception e){
+//            throw new Exception(e.getMessage());
+//
+//        }
 
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Void> updateUser(@RequestParam Integer id, @RequestParam String password) throws Exception {
-        try{
-            userService.updateUser(id,password);
-            return new ResponseEntity<>(HttpStatus.OK);
-        }catch (Exception e){
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            throw new Exception(e.getMessage());
-
-        }
+    public ResponseEntity<Void> updateUser(@RequestParam Integer id, @RequestParam String password) {
+        userService.updateUser(id,password);
+        return new ResponseEntity<>(HttpStatus.OK);
+//        try{
+//
+//        }catch (Exception e){
+////            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//            throw new Exception(e.getMessage());
+//
+//        }
         // update password of given user
 
     }

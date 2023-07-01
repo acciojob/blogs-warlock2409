@@ -23,12 +23,12 @@ public class BlogService {
     UserRepository userRepository1;
 
 
-    public Blog createAndReturnBlog(Integer userId, String title, String content) throws Exception {
+    public Blog createAndReturnBlog(Integer userId, String title, String content)  {
         //create a blog at the current time
         Optional<User> user = userRepository1.findById(userId);
-        if(!user.isPresent()){
-            throw new Exception("User not Found");
-        }
+//        if(!user.isPresent()){
+//            throw new Exception("User not Found");
+//        }
         User blogUser = user.get();
 
         Blog newLog = Blog.builder()
@@ -47,12 +47,12 @@ public class BlogService {
         return resposeBlog;
     }
 
-    public void deleteBlog(int blogId) throws Exception {
+    public void deleteBlog(int blogId)  {
         //delete blog and corresponding images
         Optional<Blog> blog = blogRepository1.findById(blogId);
-        if(!blog.isPresent()){
-           throw new Exception("Blog not found");
-        }
+//        if(!blog.isPresent()){
+//           throw new Exception("Blog not found");
+//        }
         blogRepository1.deleteById(blogId);
 
 

@@ -14,11 +14,11 @@ public class UserService {
     @Autowired
     UserRepository userRepository3;
 
-    public User createUser(String username, String password) throws Exception {
+    public User createUser(String username, String password) {
        User user= userRepository3.findByUserName(username);
-       if(user != null){
-           throw new Exception();
-       }
+//       if(user != null){
+//           throw new Exception();
+//       }
        User newUser = User.builder()
                .firstName("")
                .lastName("")
@@ -28,19 +28,19 @@ public class UserService {
         return userRepository3.save(newUser);
     }
 
-    public void deleteUser(int userId) throws Exception {
+    public void deleteUser(int userId) {
         Optional<User> user= userRepository3.findById(userId);
-        if(!user.isPresent()){
-            throw new Exception();
-        }
+//        if(!user.isPresent()){
+//            throw new Exception();
+//        }
         userRepository3.deleteById(userId);
     }
 
-    public User updateUser(Integer id, String password) throws Exception {
+    public User updateUser(Integer id, String password)  {
         Optional<User> user= userRepository3.findById(id);
-        if(!user.isPresent()){
-            throw new Exception("user not found");
-        }
+//        if(!user.isPresent()){
+//            throw new Exception("user not found");
+//        }
         User updateUser = user.get();
         updateUser.setPassword(password);
 

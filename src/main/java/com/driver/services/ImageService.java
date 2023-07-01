@@ -16,12 +16,12 @@ public class ImageService {
     @Autowired
     ImageRepository imageRepository2;
 
-    public Image addImage(Integer blogId, String description, String dimensions) throws Exception {
+    public Image addImage(Integer blogId, String description, String dimensions) {
         //add an image to the blog
         Optional<Blog> blogOptional = blogRepository2.findById(blogId);
-        if(!blogOptional.isPresent()){
-            throw new Exception("Blog not found");
-        }
+//        if(!blogOptional.isPresent()){
+//            throw new Exception("Blog not found");
+//        }
         Blog blog = blogOptional.get();
 
         Image image=Image.builder()
@@ -44,26 +44,26 @@ public class ImageService {
         return responseImage;
     }
 
-    public void deleteImage(Integer id) throws Exception {
+    public void deleteImage(Integer id) {
         Optional<Image> imageOptional = imageRepository2.findById(id);
-        if(!imageOptional.isPresent()){
-            throw new Exception("Image not found");
-        }
+//        if(!imageOptional.isPresent()){
+//            throw new Exception("Image not found");
+//        }
         imageRepository2.deleteById(id);
 
     }
 
-    public int countImagesInScreen(Integer id, String screenDimensions) throws Exception {
+    public int countImagesInScreen(Integer id, String screenDimensions) {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         Optional<Image> imageOptional = imageRepository2.findById(id);
-        if(!imageOptional.isPresent()){
-            throw new Exception("Image not found");
-        }
+//        if(!imageOptional.isPresent()){
+//            throw new Exception("Image not found");
+//        }
         Image image = imageOptional.get();
         String[] dimensions = screenDimensions.split("x");
-        if (dimensions.length != 2) {
-            throw new IllegalArgumentException("Invalid screen dimensions");
-        }
+//        if (dimensions.length != 2) {
+//            throw new IllegalArgumentException("Invalid screen dimensions");
+//        }
         int screenWidth = Integer.parseInt(dimensions[0]);
         int screenHeight = Integer.parseInt(dimensions[1]);
 
