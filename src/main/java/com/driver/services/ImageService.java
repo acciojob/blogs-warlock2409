@@ -60,7 +60,7 @@ public class ImageService {
 //            throw new Exception("Image not found");
 //        }
         Image image = imageOptional.get();
-        String[] dimensions = screenDimensions.split("x");
+        String[] dimensions = screenDimensions.split("X");
 //        if (dimensions.length != 2) {
 //            throw new IllegalArgumentException("Invalid screen dimensions");
 //        }
@@ -68,7 +68,7 @@ public class ImageService {
         int screenHeight = Integer.parseInt(dimensions[1]);
 
         // Calculate the number of images that can fit in the screen
-        String[] imageDimensions = image.getDimensions().split("x");
+        String[] imageDimensions = image.getDimensions().split("X");
 
         int imageWidth = Integer.parseInt(imageDimensions[0]);
         int imageHeight = Integer.parseInt(imageDimensions[1]);;
