@@ -15,7 +15,7 @@ public class UserService {
     UserRepository userRepository3;
 
     public User createUser(String username, String password) {
-       User user= userRepository3.findByUserName(username);
+       User user= userRepository3.findByUsername(username);
 //       if(user != null){
 //           throw new Exception();
 //       }

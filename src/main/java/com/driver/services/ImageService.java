@@ -36,12 +36,18 @@ public class ImageService {
         Blog blogResponse = blogRepository2.save(blog);
 
         Image responseImage = blogResponse.getImageList().get(blogResponse.getImageList().size()-1);
-        responseImage.getBlog().setImageList(null);
-        responseImage.getBlog().setUser(null);
+        Image image1=Image.builder()
+                .id(responseImage.getId())
+                .blog(responseImage.getBlog())
+                .description(responseImage.getDescription())
+                .dimensions(responseImage.getDimensions())
+                .build();
+//        responseImage.getBlog().setImageList(null);
+//        responseImage.getBlog().setUser(null);
 
 
 
-        return responseImage;
+        return image1;
     }
 
     public void deleteImage(Integer id) {
